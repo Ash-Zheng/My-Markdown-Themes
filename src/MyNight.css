@@ -1,0 +1,255 @@
+:root {
+	 --bg-color: #1e2022;
+    --side-bar-bg-color: #2E3033;
+    --text-color: #b8bfc6;
+
+    --select-text-bg-color:#4a89dc;
+	--table-border-color: #5b5b5b;
+    --item-hover-bg-color: #0a0d16;
+    --control-text-color: #b7b7b7;
+    --control-text-hover-color: #eee;
+    --window-border: 1px solid #555;
+
+    --active-file-bg-color: rgb(34, 34, 34);
+    --active-file-border-color: #8d8df0;
+
+    --primary-color: #a3d5fe;
+
+    --active-file-text-color: white;
+    --item-hover-bg-color: #70717d;
+    --item-hover-text-color: white;
+    --primary-color: #6dc1e7;
+
+    --rawblock-edit-panel-bd: #333;
+}
+
+@font-face {
+	font-family: 'Computer Modern';
+	font-style: normal;
+	font-weight: normal;
+	src: url('./MyTheme/cmunti.ttf');
+	}
+
+@font-face {
+	font-family: 'Computer Modern';
+	font-style: italic;
+	font-weight: normal;
+	src: url('./MyTheme/cmunti.ttf');
+}
+
+@font-face {
+	font-family: 'Computer Modern';
+	font-style: normal;
+	font-weight: bold;
+	src: url('./MyTheme/cmunbx.ttf');
+}
+
+@font-face {
+	font-family: 'Computer Modern';
+	font-style: italic;
+	font-weight: bold;
+	src: url('./MyTheme/cmunbi.ttf');
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html, body, #write {
+	font-family: "苹方";
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Computer Modern';
+}
+
+h1 {
+	font-size: 2rem;
+	text-align:center;
+}
+
+h2 {
+	 font-size: 1.8rem;
+}
+
+h3 {
+	font-size: 1.6rem;
+}
+
+h4 {
+	font-size: 1.4rem;
+}
+
+h5 {
+	font-size: 1.2rem;
+}
+
+h6 {
+	font-size: 1rem;
+}
+
+html {
+	font-size: 18px;
+}
+
+body, #write {
+	max-width: 914px;
+	text-align: justify;
+	display: block;
+	margin: auto;
+}
+
+p {
+	font-size: 1rem;
+	margin:10px;
+}
+
+
+a {
+	color: var(--primary-color);
+}
+
+table {
+    font-size: 0.875rem;
+    padding: 0;
+    word-break: initial;
+}
+
+table tr {
+    border-top: 1px solid #57708d;
+    margin: 0;
+    padding: 0;
+}
+
+thead {
+    background-color: #324963;
+    color: #9dbbdd;
+}
+
+table tr th {
+    border: 1px solid #57708d;
+    border-bottom: solid 2px #ccc;
+    border-bottom: 0;
+    font-weight: bold;
+    margin: 0;
+    padding: 10px 16px;
+}
+
+table tr td {
+    background: #192534;
+    border: 1px solid #57708d;
+    margin: 0;
+    padding: 10px 16px;
+}
+
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Stuff */
+
+sup.md-footnote {
+	background-color: transparent;
+	color: var(--primary-color);
+	padding: 1px;
+	margin: 0;
+}
+
+code, .md-fences, .sourceCode {
+	background: #f2f2f2;
+}
+
+.md-fences, pre.sourceCode {
+	font-size: .7em;
+	padding: .5rem;
+}
+
+.show-fences-line-number .md-fences {
+	padding-left: .5rem;
+}
+
+blockquote {
+	font-family: 'Computer Modern';
+	margin: 2rem .2rem;
+	padding: .3rem .5rem;
+	color: #6f6f6f;
+	border-left: .4rem solid gray;
+}
+
+blockquote p {
+	padding: .2rem 1.5rem;
+}
+
+mark {
+	background: yellow;
+}
+
+figure {
+	margin: .5rem auto;
+	max-width: 100%;
+	display: block;
+	margin: auto;
+}
+
+figcaption {
+	text-align: center;
+	margin: .5rem auto;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+	margin: auto;
+}
+
+/* 
+    Print Mode and page breaks.
+    WkhtmlToPDF does not work on @print mode
+*/
+
+@media (max-width: 210mm) {
+	img {
+		max-height: 8cm;
+	}
+	html {
+		font-size: 16px;
+	}
+	div[title="pb"], page-break {
+		display: block;
+		page-break-after: always;
+		break-after: page;
+	}
+	nav {
+		font-size: .9rem;
+		page-break-after: always;
+		page-break-before: always;
+	}
+	nav a {
+		color: black;
+	}
+	/* Move top-level headings to a new page on the right-hand side: */
+	h1, h2 {
+		page-break-before: right;
+		break-before: recto;
+	}
+	/* Override the previous ruleset for the very first heading: */
+	h1:first-of-type, section>h1:first-child {
+		page-break-before: avoid;
+		break-before: avoid;
+	}
+	/* Headings should not be the last paragraph on a page: */
+	h1, h2, h3, h4, h5, h6 {
+		page-break-after: avoid;
+	}
+	/* Consecutive headings with deepening level should not be split across pages: */
+	h1+h2, h2+h3, h3+h4, h4+h5, h5+h6 {
+		page-break-before: avoid;
+	}
+}
